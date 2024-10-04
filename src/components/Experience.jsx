@@ -3,59 +3,59 @@ import {
   MeshDistortMaterial,
   MeshWobbleMaterial,
   useScroll,
-} from "@react-three/drei";
-import { useFrame, useThree } from "@react-three/fiber";
-import { animate, useMotionValue } from "framer-motion";
-import { motion } from "framer-motion-3d";
-import { useEffect, useRef, useState } from "react";
-import { framerMotionConfig } from "../config";
-import { Avatar } from "./Avatar";
-import { Background } from "./Background";
-import { Office } from "./Office";
-import { Projects } from "./Projects";
+} from "@react-three/drei"
+import { useFrame, useThree } from "@react-three/fiber"
+import { animate, useMotionValue } from "framer-motion"
+import { motion } from "framer-motion-3d"
+import { useEffect, useRef, useState } from "react"
+import { framerMotionConfig } from "../config"
+import { Avatar } from "./Avatar"
+import { Background } from "./Background"
+import { Office } from "./Office"
+import { Projects } from "./Projects"
 
 export const Experience = (props) => {
-  const { menuOpened } = props;
-  const { viewport } = useThree();
-  const data = useScroll();
+  const { menuOpened } = props
+  const { viewport } = useThree()
+  const data = useScroll()
 
-  const [section, setSection] = useState(0);
+  const [section, setSection] = useState(0)
 
-  const cameraPositionX = useMotionValue();
-  const cameraLookAtX = useMotionValue();
+  const cameraPositionX = useMotionValue()
+  const cameraLookAtX = useMotionValue()
 
   useEffect(() => {
     animate(cameraPositionX, menuOpened ? -5 : 0, {
       ...framerMotionConfig,
-    });
+    })
     animate(cameraLookAtX, menuOpened ? 5 : 0, {
       ...framerMotionConfig,
-    });
-  }, [menuOpened]);
+    })
+  }, [menuOpened])
 
-  const characterContainerAboutRef = useRef();
+  const characterContainerAboutRef = useRef()
 
-  const [characterAnimation, setCharacterAnimation] = useState("Typing");
+  const [characterAnimation, setCharacterAnimation] = useState("Typing")
   useEffect(() => {
-    setCharacterAnimation("Falling");
+    setCharacterAnimation("Falling")
     setTimeout(() => {
-      setCharacterAnimation(section === 0 ? "Typing" : "Standing");
-    }, 600);
-  }, [section]);
+      setCharacterAnimation(section === 0 ? "Typing" : "Standing")
+    }, 600)
+  }, [section])
 
   useFrame((state) => {
-    let curSection = Math.floor(data.scroll.current * data.pages);
+    let curSection = Math.floor(data.scroll.current * data.pages)
 
     if (curSection > 3) {
-      curSection = 3;
+      curSection = 3
     }
 
     if (curSection !== section) {
-      setSection(curSection);
+      setSection(curSection)
     }
 
-    state.camera.position.x = cameraPositionX.get();
-    state.camera.lookAt(cameraLookAtX.get(), 0, 0);
+    state.camera.position.x = cameraPositionX.get()
+    state.camera.lookAt(cameraLookAtX.get(), 0, 0)
 
     // const position = new THREE.Vector3();
     // characterContainerAboutRef.current.getWorldPosition(position);
@@ -67,7 +67,7 @@ export const Experience = (props) => {
     // euler.setFromQuaternion(quaternion, "XYZ");
 
     // console.log([euler.x, euler.y, euler.z]);
-  });
+  })
 
   return (
     <>
@@ -140,14 +140,16 @@ export const Experience = (props) => {
         }}
       >
         <directionalLight position={[-5, 3, 5]} intensity={0.4} />
+
+        {/* BACKGROUND SHAPES */}
         <Float>
           <mesh position={[1, -3, -15]} scale={[2, 2, 2]}>
             <sphereGeometry />
             <MeshDistortMaterial
-              opacity={0.8}
+              opacity={0.5}
               transparent
-              distort={0.4}
-              speed={4}
+              distort={0.1}
+              speed={0.7}
               color={"red"}
             />
           </mesh>
@@ -156,11 +158,11 @@ export const Experience = (props) => {
           <mesh scale={[3, 3, 3]} position={[3, 1, -18]}>
             <sphereGeometry />
             <MeshDistortMaterial
-              opacity={0.8}
+              opacity={0.5}
               transparent
-              distort={1}
-              speed={5}
-              color="yellow"
+              distort={0.4}
+              speed={0.7}
+              color={"yellow"}
             />
           </mesh>
         </Float>
@@ -168,10 +170,10 @@ export const Experience = (props) => {
           <mesh scale={[1.4, 1.4, 1.4]} position={[-3, -1, -11]}>
             <boxGeometry />
             <MeshWobbleMaterial
-              opacity={0.8}
+              opacity={0.7}
               transparent
               factor={1}
-              speed={5}
+              speed={0.5}
               color={"blue"}
             />
           </mesh>
@@ -179,5 +181,5 @@ export const Experience = (props) => {
       </motion.group>
       <Projects />
     </>
-  );
-};
+  )
+}

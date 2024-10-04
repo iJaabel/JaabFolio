@@ -8,40 +8,40 @@ import { useEffect, useRef } from "react"
 
 export const projects = [
   {
-    title: "Mamba",
-    url: "https://mambachat.netlify.app/",
-    image: "public/projects/Mamba.png",
-    description: "Landing page for a chat application with React",
+    title: "eComm Web Shop",
+    url: "https://emobile.netlify.app/",
+    image: "/projects/ecomMobile.png",
+    description: "App built for shoping cart feature with React",
   },
   {
     title: "Quiz Time",
     url: "https://effortless-baklava-5ee545.netlify.app/",
-    image: "public/projects/QuizTime.png",
+    image: "/projects/QuizTime.png",
     description: "Creating the Quiz website with Vanilla JavaScript",
   },
   {
     title: "Web Template",
     url: "https://jaabel-portfolio.netlify.app/",
-    image: "public/projects/Template.png",
+    image: "/projects/Template.png",
     description:
       "A portfolio template built with React Bootstrap and Material Design",
   },
   {
-    title: "eComm Web Shop",
-    url: "https://emobile.netlify.app/",
-    image: "public/projects/ecomMobile.png",
-    description: "App built for shoping cart feature with React",
+    title: "Mamba",
+    url: "https://mambachat.netlify.app/",
+    image: "/projects/Mamba.png",
+    description: "Landing page for a chat application with React",
   },
   {
     title: "VFL API",
     url: "https://apivfl-jaabel-lopezs-projects.vercel.app/",
-    image: "public/projects/VFLapi.png",
+    image: "/projects/VFLapi.png",
     description: "A backend built for Visual Fractions Library with NodeJS",
   },
   {
     title: "My First Website",
     url: "https://jaabel-first-website.netlify.app/",
-    image: "public/projects/FirstWeb.png",
+    image: "/projects/FirstWeb.png",
     description: "See how far I have come built with Vanilla JavaScript",
   },
 ]

@@ -94,16 +94,16 @@ const AboutSection = (props) => {
 
 const skills = [
   {
-    title: "Threejs / React Three Fiber",
-    level: 60,
-  },
-  {
     title: "React / React Native",
     level: 80,
   },
   {
     title: "Nodejs",
     level: 80,
+  },
+  {
+    title: "Threejs / React Three Fiber",
+    level: 60,
   },
   {
     title: "Communication",
